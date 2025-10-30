@@ -1,0 +1,194 @@
+/* =========================================
+   2. APPLICATION STRUCTURE (App.css)
+   ========================================= */
+
+/* --- Layout Container --- */
+.app-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.page-container {
+    flex-grow: 1;
+    padding: var(--padding-md);
+    max-width: 1400px;
+    margin: 0 auto; /* Center content */
+    width: 100%;
+}
+
+/* --- Main Header --- */
+.main-header {
+    background-color: var(--color-surface-white);
+    box-shadow: var(--shadow-light);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.main-header__top-bar {
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px var(--padding-md);
+}
+
+.app-branding {
+    display: flex;
+    align-items: center;
+}
+
+.logo-icon {
+    font-size: 24px;
+    margin-right: 10px;
+}
+
+.header-actions .btn-settings {
+    background: none;
+    color: var(--color-text-light);
+    margin-right: var(--padding-md);
+    opacity: 0.8;
+}
+
+.header-actions .btn-export {
+    background-color: var(--color-surface-white);
+    color: var(--color-primary);
+    padding: 10px 20px;
+}
+
+/* --- Tab Navigation --- */
+.tab-bar {
+    display: flex;
+    border-bottom: 1px solid var(--color-border);
+    background-color: var(--color-surface-white);
+    padding: 0 var(--padding-md);
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.tab-bar a {
+    padding: 14px var(--padding-md);
+    margin-right: 16px;
+    font-weight: 500;
+    color: var(--color-text-dark);
+    position: relative;
+    transition: color 0.2s;
+}
+
+.tab-bar a:hover {
+    color: var(--color-primary);
+}
+
+.tab-active-style {
+    color: var(--color-primary) !important;
+}
+
+/* The blue line indicator */
+.tab-active-style::after {
+    content: '';
+    position: absolute;
+    bottom: -1px; /* Align with border-bottom */
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: var(--color-primary);
+}
+
+/* --- Schedule Header Controls --- */
+.schedule-header-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--color-surface-white);
+    padding: var(--padding-md);
+    margin-bottom: var(--padding-md);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-light);
+}
+
+.week-navigation-block {
+    display: flex;
+    align-items: center;
+}
+
+.week-navigation-block .arrow-button {
+    background: none;
+    border: 1px solid var(--color-border);
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    margin: 0 5px;
+}
+
+.date-range-display {
+    text-align: center;
+    padding: 0 15px;
+}
+
+.date-range-text {
+    display: block;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.week-number-text {
+    display: block;
+    font-size: 0.85rem;
+    color: #666;
+}
+
+/* --- Calendar Grid Layout --- */
+.calendar-grid-container {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr); /* 7 equal columns for the days */
+    gap: 12px;
+}
+
+/* --- Day Column Styling --- */
+.day-column {
+    background-color: var(--color-surface-white);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius);
+    padding: 10px;
+    min-height: 400px; /* Ensures visibility even when empty */
+}
+
+.column-header {
+    text-align: center;
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: 8px;
+    margin-bottom: 10px;
+}
+
+.day-name {
+    font-weight: 600;
+    display: block;
+}
+
+.day-date {
+    font-size: 0.85rem;
+    color: #999;
+    margin-bottom: 5px;
+}
+
+.add-shift-button {
+    background-color: var(--color-background-app);
+    color: var(--color-text-dark);
+    font-size: 1.2rem;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    line-height: 1;
+    padding: 0;
+    margin-top: 5px;
+}
+
+/* --- Shift Cards Container --- */
+.shift-cards-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+}

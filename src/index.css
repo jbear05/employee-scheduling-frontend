@@ -1,0 +1,62 @@
+/* =========================================
+   1. GLOBAL RESET AND VARIABLES (index.css)
+   ========================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    /* Brand Colors */
+    --color-primary: #1976D2; /* Main Blue */
+    --color-primary-light: #42a5f5;
+    
+    /* Neutrals */
+    --color-text-dark: #333;
+    --color-text-light: #fff;
+    --color-background-app: #f4f5f7; /* Light Gray Background */
+    --color-surface-white: #fff;
+    --color-border: #e0e0e0;
+    
+    /* Semantic Colors */
+    --color-error: #d32f2f;
+    --color-success: #388e3c;
+
+    /* Spacing */
+    --padding-md: 16px;
+    --border-radius: 8px;
+    --shadow-light: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+body, html, #root {
+    height: 100%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--color-text-dark);
+    background-color: var(--color-background-app);
+    line-height: 1.5;
+}
+
+a {
+    text-decoration: none;
+    color: var(--color-primary);
+}
+
+/* Default Button/Input Styling */
+button {
+    cursor: pointer;
+    border: none;
+    padding: 8px 16px;
+    border-radius: var(--border-radius);
+    transition: background-color 0.2s, box-shadow 0.2s;
+    font-weight: 600;
+}
+
+input[type="text"], input[type="email"], input[type="number"], input[type="time"], input[type="date"], select {
+    padding: 10px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius);
+    width: 100%;
+    font-size: 16px;
+}
