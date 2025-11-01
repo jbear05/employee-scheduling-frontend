@@ -13,58 +13,63 @@ function ShiftListTable({ shifts, onDelete }) {
     if (!shifts || shifts.length === 0) {
         // 
         return (
-            <div className="empty-state">
-                <p>No shifts found in the system. Use the "Add New Shift" button to begin scheduling.</p>
+            <div className="table-container">
+                <div className="empty-state">
+                    <p>No shifts found in the system. Use the "Add New Shift" button to begin scheduling.</p>
+                </div>
             </div>
+            
         );
     }
 
     return (
-        <table className="shift-data-table">
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Required Role</th>
-                    <th>Start Time</th>
-                    <th>End Time</th> 
-                    <th>Actions</th>{/* Column for Edit and Delete buttons */}
-                </tr>
-            </thead>
-            <tbody>
-                {/* 2. Map Over Data */}
-                {shifts.map((shift) => (
-                    <tr key={shift.id}>
-                        {/* Data Display */}
-                        <td>{shift.name}</td>
-                        <td>{shift.requiredRole}</td>
-                        <td>{shift.startTime}</td>
-                        <td>{shift.endTime}</td>
-                        
-                        <td className="actions-cell">
-                            {/* 3. The Edit Action (Routing) */}
-                            {/* Uses the Link component to navigate to the nested edit route */}
-                            <Link 
-                                to={`/shifts/edit/${shift.id}`} 
-                                className="btn-action btn-edit"
-                                title="Edit Shift"
-                            >
-                                ✏️ Edit 
-                            </Link>
-                            
-                            {/* 4. The Delete Action (Event Handling) */}
-                            {/* Calls the onDelete handler passed from the parent */}
-                            <button 
-                                onClick={() => onDelete(shift.id)} 
-                                className="btn-action btn-delete"
-                                title="Delete Shift"
-                            >
-                                🗑️ Delete 
-                            </button>
-                        </td>
+        <div className="table-container">
+            <table className="data-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Required Role</th>
+                        <th>Start Time</th>
+                        <th>End Time</th> 
+                        <th>Actions</th>{/* Column for Edit and Delete buttons */}
                     </tr>
-                ))}
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    {/* 2. Map Over Data */}
+                    {shifts.map((shift) => (
+                        <tr key={shift.id}>
+                            {/* Data Display */}
+                            <td>{shift.name}</td>
+                            <td>{shift.requiredRole}</td>
+                            <td>{shift.startTime}</td>
+                            <td>{shift.endTime}</td>
+                            
+                            <td className="actions-cell">
+                                {/* 3. The Edit Action (Routing) */}
+                                {/* Uses the Link component to navigate to the nested edit route */}
+                                <Link 
+                                    to={`/shifts/edit/${shift.id}`} 
+                                    className="btn-action btn-edit"
+                                    title="Edit Shift"
+                                >
+                                    ✏️ Edit 
+                                </Link>
+                                
+                                {/* 4. The Delete Action (Event Handling) */}
+                                {/* Calls the onDelete handler passed from the parent */}
+                                <button 
+                                    onClick={() => onDelete(shift.id)} 
+                                    className="btn-action btn-delete"
+                                    title="Delete Shift"
+                                >
+                                    🗑️ Delete 
+                                </button>
+                            </td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
+        </div>
     );
 }
 

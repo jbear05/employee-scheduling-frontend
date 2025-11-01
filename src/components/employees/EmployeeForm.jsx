@@ -1,11 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react'; // React imports for state management and lifecycle
 import { useParams, useNavigate } from 'react-router-dom'; // Essential for routing
 import { getEmployeeById, createEmployee, updateEmployee } from '../../services/EmployeeService'; // API service functions
 
 
+/**
+ * EmployeeForm component serves both for creating a new employee and editing an existing one.
+ * It determines its mode (create or edit) based on the presence of an 'id' in the URL.
+ * It manages form state, handles input changes, and submits data to the backend API.
+ * It also handles loading states and displays errors if API calls fail.
+ */
 function EmployeeForm() {
     // 1. Determine Mode and Setup Navigation
-    const { id } = useParams(); // Gets the 'id' from the URL (e.g., /employees/edit/5)
+    const { id } = useParams(); // Gets the 'id' from the URL, if it exists. If 'id' is present, we are in edit mode; otherwise, we are in create mode.
     const navigate = useNavigate(); // Hook to redirect user after submission
     const isEditMode = !!id; // Boolean: true if 'id' exists
 
@@ -23,6 +29,7 @@ function EmployeeForm() {
     // 3. useEffect Hook for Data Fetching (Edit Mode ONLY)
     useEffect(() => {
         if (isEditMode) {
+            // If we are in edit mode, we need to fetch the existing employee data to populate the form
             const fetchCurrentEmployee = async () => {
                 setIsLoading(true);
                 try {
@@ -117,6 +124,7 @@ function EmployeeForm() {
                     required
                 />
                 
+                {/* Display validation errors for the 'name' field if they exist */}
                 {validationErrors.name && <p className="field-error">{validationErrors.name}</p>}
                 
                 <button type="submit" disabled={isLoading}>

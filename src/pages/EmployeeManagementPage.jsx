@@ -8,6 +8,9 @@ function EmployeeManagementPage() {
   const [employees, setEmployees] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
+  
+  // GET LOCATION FIRST - MOVE THIS UP HERE
+  const location = useLocation();
 
   // 2. Define the Action: Fetching Data
   const fetchEmployees = async () => {
@@ -25,31 +28,29 @@ function EmployeeManagementPage() {
     }
   };
 
-  // 3. Trigger the Action using useEffect
+  // 3. Check the current path
+  const isListPath = location.pathname.replace(/\/$/, "") === '/employees';
+
+  // 4. Trigger the Action using useEffect
   useEffect(() => {
-    fetchEmployees();
-  }, []); // Empty dependency array [] means run ONLY once on mount
+    if (isListPath) {
+      fetchEmployees();
+    }
+  }, [isListPath]);
 
   // Function to handle deletion and update the list without a full page refresh
   const handleDelete = async (id) => {
     try {
       await deleteEmployee(id);
-      // After successful deletion, update the state by filtering the removed employee
       setEmployees(employees.filter(emp => emp.id !== id));
-      // Optionally show a success toast message here
     } catch (err) {
       console.error("Delete Error:", err);
-      // Optionally show an error toast message here
     }
   };
 
-  // Check the current location to decide what to show
-  const location = useLocation();
-  const isListPath = location.pathname.replace(/\/$/, "") === '/employees';
-
-  // 4. Handle Statuses with Conditional Rendering
+  // 5. Handle Statuses with Conditional Rendering
   if (isLoading) {
-    return <div>Loading Employee Data...</div>; // ⏳
+    return <div>Loading Employee Data...</div>;
   }
 
   if (error) {
@@ -59,11 +60,8 @@ function EmployeeManagementPage() {
   // Success state: Render the main component, passing data and handlers
   return (
       <div className="page-container employee-management">
-          
-          {/* 1. RENDER THE CONTENT BASED ON THE PATH */}
           {isListPath && (
               <>
-                  {/* The Add Button and List Table ONLY appear on /employees */}
                   <Link to="/employees/new" className="btn-action btn-primary">
                       + Add New Employee
                   </Link>
@@ -73,15 +71,7 @@ function EmployeeManagementPage() {
                   />
               </>
           )}
-
-          {/* 2. RENDER THE NESTED FORM (from App.jsx routes) */}
-          {/* The <Outlet> is where the content of /employees/new or /employees/edit/:id goes */}
           <Outlet /> 
-
-          {/* * NOTE: If you are seeing content *below* the form on the /new page, 
-            * you need to use the method where the nested routes are defined in App.jsx 
-            * and only the <Outlet> remains here.
-          */}
       </div>
   );
 }

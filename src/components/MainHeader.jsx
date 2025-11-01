@@ -8,12 +8,11 @@ function MainHeader() {
             <div className="main-header__top-bar">
                 <div className="app-branding">
                     {/* Placeholder for your logo/icon */}
-                    <span className="logo-icon">📅</span>
+                    <span className="logo-icon">$$$</span>
                     <h1 className="app-title">Employee Scheduling System</h1>
                 </div>
                 
                 <div className="header-actions">
-                    <button className="btn-settings">⚙️ Settings</button>
                     <button className="btn-export">Export Schedule</button> 
                     {/* The Export Schedule button would eventually call a specific API function */}
                 </div>

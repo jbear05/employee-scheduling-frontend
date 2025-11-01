@@ -12,7 +12,6 @@ function ShiftForm() {
     // 2. Local State Management
     const [formData, setFormData] = useState({ 
         name: '',
-        date: '',
         requiredRole: '', 
         startTime: '', 
         endTime: '',
@@ -100,16 +99,6 @@ function ShiftForm() {
                     value={formData.name}
                     onChange={handleChange} 
                     required 
-                />
-
-                {/* Date Input */}
-                <label>Date:</label>
-                <input
-                    type="date"
-                    name="date"
-                    value={formData.date}
-                    onChange={handleChange}
-                    required
                 />
                 
                 {/* Required Role Input (e.g., Server, Kitchen) */}

@@ -45,17 +45,14 @@
     margin-right: 10px;
 }
 
-.header-actions .btn-settings {
-    background: none;
-    color: var(--color-text-light);
-    margin-right: var(--padding-md);
-    opacity: 0.8;
-}
-
 .header-actions .btn-export {
     background-color: var(--color-surface-white);
     color: var(--color-primary);
     padding: 10px 20px;
+}
+
+.header-actions .btn-export:hover {
+    color: var(--color-primary-light);
 }
 
 /* --- Tab Navigation --- */
@@ -137,6 +134,60 @@
     display: block;
     font-size: 0.85rem;
     color: #666;
+}
+
+.btn-action {
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+    padding: 10px 20px;
+    border-radius: var(--border-radius);
+    font-weight: 600;
+}
+
+.btn-action:hover {
+    background-color: var(--color-primary-light);
+}
+
+.btn-today {
+    margin-right: 10px;
+}
+
+/* --- Employee Management Page --- */
+
+/*Also applies to shift table*/
+.table-container {
+    background-color: var(--color-surface-white);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius);
+    padding: var(--padding-md);
+    box-shadow: var(--shadow-light);
+    margin: var(--padding-md) 0;
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.data-table th, .data-table td {
+    padding: 12px;
+    border-bottom: 1px solid var(--color-border);
+    text-align: left;
+}
+
+.data-table th {
+    background-color: var(--color-background-app);
+    font-weight: 600;
+}
+
+.data-table tbody tr:hover {
+    background-color: var(--color-background-app);
+}
+
+/* Action Buttons in Employee Table and Shifts Table */
+.actions-cell {
+    display: flex;
+    gap: 10px;
 }
 
 /* --- Calendar Grid Layout --- */

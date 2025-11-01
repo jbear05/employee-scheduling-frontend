@@ -15,13 +15,13 @@ function TabNavigation() {
   return (
     <nav className="tab-bar">
       <Link to="/schedule" className={getClassName('/schedule')}>
-        📅 Schedule
+        Schedule
       </Link>
       <Link to="/employees" className={getClassName('/employees')}>
-        👥 Employees
+        Employees
       </Link>
       <Link to="/shifts" className={getClassName('/shifts')}>
-        ⏱️ Shift Management
+        Shifts
       </Link>
     </nav>
   );
