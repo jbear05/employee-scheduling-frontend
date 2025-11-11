@@ -8,8 +8,8 @@
 
 :root {
     /* Brand Colors */
-    --color-primary: #BD9A34; /* Main Blue */
-    --color-primary-light: #F2C416;
+    --color-primary: #18AD85; /* Main Blue */
+    --color-primary-light: #18AD85cc; /* 80% Opacity */
     
     /* Neutrals */
     --color-text-dark: #333;
