@@ -6,7 +6,7 @@ import { isSameDay, parseISO } from 'date-fns';
 /**
  * Renders a single day column and the shift cards assigned to it.
  */
-function DayColumn({ date, allAssignments, allEmployees, allShifts }) {
+function DayColumn({ date, allAssignments, allEmployees, allShifts, onAddAssignment }) {
     
     // Format the date for the column header (e.g., "Monday")
     const dayName = DateHelpers.formatDayName(date);
@@ -26,13 +26,18 @@ function DayColumn({ date, allAssignments, allEmployees, allShifts }) {
         return isSameDay(date, assignmentDate);
     });
 
+    // Handler to open modal with this specific date
+    const handleAddClick = () => {
+        onAddAssignment(date);  // Pass the date to parent
+    };
+
     return (
         <div className="day-column">
             {/* Column Header */}
             <div className="column-header">
                 <span className="day-name">{dayName}</span>
                 <span className="day-date">{formattedDate}</span>
-                <button className="add-shift-button">+</button> {/* The add assignment button */}
+                <button className="add-shift-button" onClick = {handleAddClick}>+</button> {/* The add assignment button */}
             </div>
             
             {/* Shift Cards */}

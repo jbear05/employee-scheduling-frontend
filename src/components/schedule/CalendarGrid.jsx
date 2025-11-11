@@ -9,7 +9,7 @@ import DayColumn from './DayColumn';
  * @param {Array} employees - List of all employees (for name lookup).
  * @param {Array} shifts - List of all shift templates (for time/role lookup).
  */
-function CalendarGrid({ currentWeekStart, assignments, employees, shifts }) {
+function CalendarGrid({ currentWeekStart, assignments, employees, shifts, onAddAssignment }) {
     
     // 1. Generate the 7 Date Objects for the week
     const weekDays = DateHelpers.generateWeekDays(currentWeekStart);
@@ -19,12 +19,12 @@ function CalendarGrid({ currentWeekStart, assignments, employees, shifts }) {
             {/* 2. Loop over the 7 days and render a column for each */}
             {weekDays.map((dateObj, index) => (
                 <DayColumn 
-                    key={index} // Using index is okay here since the array size (7) never changes
-                    date={dateObj} // Pass the Date object for that specific day
-                    // Pass the complete dataset to the column
+                    key={index} 
+                    date={dateObj}
                     allAssignments={assignments} 
                     allEmployees={employees}
                     allShifts={shifts}
+                    onAddAssignment={onAddAssignment}
                 />
             ))}
         </div>
