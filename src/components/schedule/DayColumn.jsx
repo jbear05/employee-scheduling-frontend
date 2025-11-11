@@ -1,7 +1,7 @@
 import React from 'react';
 import ShiftCard from './ShiftCard';
 import * as DateHelpers from '../../utils/dateHelpers';
-import { isSameDay, parseISO } from 'date-fns'; // Helper from date-fns for comparison
+import { isSameDay, parseISO } from 'date-fns';
 
 /**
  * Renders a single day column and the shift cards assigned to it.
@@ -19,8 +19,7 @@ function DayColumn({ date, allAssignments, allEmployees, allShifts }) {
             return false;
         }
         
-        // Assume your assignment object from Spring Boot has a 'date' property 
-        // as an ISO string (e.g., "2025-10-30T00:00:00").
+        // Spring Boot date like "2025-10-30"
         const assignmentDate = parseISO(assignment.date); 
         
         // Use date-fns to safely compare if the two Date objects represent the same day

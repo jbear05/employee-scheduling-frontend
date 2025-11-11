@@ -7,16 +7,11 @@ import {
     format,
 } from 'date-fns';
 
-// ------------------------------------------
-// Configuration
-// ------------------------------------------
 
 // Configure options for date-fns to start the week on Monday (1)
 const OPTIONS = { weekStartsOn: 1 }; 
 
-// ------------------------------------------
-// Core Navigation Functions
-// ------------------------------------------
+
 
 /**
  * Calculates the start date (Monday) of the week containing the given date.

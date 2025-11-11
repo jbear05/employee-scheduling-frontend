@@ -7,7 +7,6 @@ import './index.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    {/* 2. Wrap your application with the BrowserRouter */}
     <BrowserRouter>
       <App />
     </BrowserRouter>

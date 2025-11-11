@@ -7,7 +7,7 @@ function MainHeader() {
             {/* Top Bar Section (Blue) */}
             <div className="main-header__top-bar">
                 <div className="app-branding">
-                    {/* Placeholder for your logo/icon */}
+                    {/* Placeholder for logo/icon */}
                     <span className="logo-icon">$$$</span>
                     <h1 className="app-title">Employee Scheduling System</h1>
                 </div>

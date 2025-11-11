@@ -6,10 +6,10 @@ function TabNavigation() {
 
   const getClassName = (path) => {
     // Check if the current path starts with the link's path 
-    // This handles nested routes (e.g., /employees/new still makes /employees active)
+    // This handles nested routes (/employees/new still makes /employees active)
     return location.pathname.startsWith(path) 
-      ? 'tab-active-style' // Your CSS class for the blue line/text
-      : 'tab-default-style'; // Your default CSS class
+      ? 'tab-active-style' // CSS class for the blue line/text
+      : 'tab-default-style'; // default CSS class
   };
 
   return (

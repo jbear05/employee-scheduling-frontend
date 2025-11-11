@@ -1,7 +1,6 @@
 import React from 'react';
 import * as DateHelpers from '../../utils/dateHelpers';
-import DayColumn from './DayColumn'; // Import the component we're rendering
-// import other components as needed
+import DayColumn from './DayColumn';
 
 /**
  * Renders the main 7-day schedule grid.

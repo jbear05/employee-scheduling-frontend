@@ -58,7 +58,7 @@ function ShiftCard({ assignment, allEmployees, allShifts }) {
                 <div className="shift-time">{timeRange}</div>
             </div>
 
-            {/* Role (the colored label at the bottom) */}
+            {/* Role */}
             <div className="shift-role-label">
                 {shiftRole}
             </div>

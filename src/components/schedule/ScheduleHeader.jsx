@@ -1,5 +1,5 @@
 import React from 'react';
-import * as DateHelpers from '../../utils/dateHelpers'; // Access helper functions
+import * as DateHelpers from '../../utils/dateHelpers';
 
 /**
  * Renders the calendar navigation bar, title, and action buttons.
@@ -17,7 +17,7 @@ function ScheduleHeader({ currentWeekStart, handleWeekChange }) {
     
     return (
         <div className="schedule-header-controls">
-            {/* -------------------- 1. Week Navigation Block -------------------- */}
+            {/*Week Navigation Block */}
             <div className="week-navigation-block">
                 {/* Previous Week Button */}
                 <button 
@@ -48,7 +48,7 @@ function ScheduleHeader({ currentWeekStart, handleWeekChange }) {
                 </button>
             </div>
 
-            {/* -------------------- 2. Action Buttons -------------------- */}
+            {/* Action Buttons */}
             <div className="action-buttons-block">
                 <button 
                     className="btn-action btn-today"

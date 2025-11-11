@@ -1,13 +1,11 @@
-// src/App.jsx (Revised)
+
 import { Routes, Route, Navigate } from 'react-router-dom';
 import MainLayout from './components/MainLayout';
 import ScheduleCalendarPage from './pages/ScheduleCalendarPage';
 import EmployeeManagementPage from './pages/EmployeeManagementPage';
 import ShiftManagementPage from './pages/ShiftManagementPage';
-// --- New Imports (needed for nested routes) ---
 import EmployeeForm from './components/employees/EmployeeForm'; 
 import ShiftForm from './components/shifts/ShiftForm'; 
-// ---------------------------------------------
 import './App.css';
 
 function App() {
