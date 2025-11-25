@@ -103,6 +103,11 @@
     box-shadow: var(--shadow-light);
 }
 
+.schedule-view.page-container {
+    max-width: 100%; /* Allow full width for calendar */
+    padding: var(--padding-md);
+}
+
 .week-navigation-block {
     display: flex;
     align-items: center;
@@ -191,8 +196,9 @@
 /* --- Calendar Grid Layout --- */
 .calendar-grid-container {
     display: grid;
-    grid-template-columns: repeat(7, 1fr); /* 7 equal columns for the days */
+    grid-template-columns: repeat(7, minmax(150px, 1fr)); /* Changed from repeat(7, 1fr) */
     gap: 12px;
+    width: 100%;
 }
 
 /* --- Day Column Styling --- */
@@ -279,10 +285,70 @@
     margin-top: 20px;
 }
 
-/* --- Shift Cards Container --- */
-.shift-cards-container {
+/* --- Shift Card Styling --- */
+.shift-card {
+    background-color: var(--color-surface-white);
+    border-left: 4px solid var(--color-primary);
+    border-radius: var(--border-radius);
+    padding: 12px;
+    box-shadow: var(--shadow-light);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.shift-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+}
+
+.shift-card__header {
     display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-top: 10px;
+    justify-content: flex-end;
+    margin-bottom: 8px;
+}
+
+.shift-card__menu-icon {
+    color: #999;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.shift-card__body {
+    margin-bottom: 10px;
+}
+
+.employee-name {
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--color-text-dark);
+    margin-bottom: 4px;
+}
+
+.shift-time {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.shift-role-label {
+    display: inline-block;
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+/* Different colors for different roles */
+.shift-card--manager {
+    border-left-color: #9c27b0; /* Purple */
+}
+
+.shift-card--manager .shift-role-label {
+    background-color: #9c27b0;
+}
+
+.shift-card--error {
+    border-left-color: var(--color-error);
+    background-color: #ffebee;
 }

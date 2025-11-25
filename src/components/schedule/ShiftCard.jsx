@@ -13,11 +13,11 @@ function ShiftCard({ assignment, allEmployees, allShifts }) {
     
     // 1. Look Up Employee Name (based on ID)
     // Find the employee object whose ID matches the assignment's assignedEmployeeId
-    const employee = allEmployees.find(emp => emp.id === assignment.assignedEmployeeId);
+    const employee = allEmployees.find(emp => emp.id === assignment.employee.id);
 
     // 2. Look Up Shift Template Details (based on ID)
     // Find the shift object whose ID matches the assignment's shiftTemplateId
-    const shiftTemplate = allShifts.find(shift => shift.id === assignment.shiftTemplateId);
+    const shiftTemplate = allShifts.find(shift => shift.id === assignment.shift.id);
 
     // Handle case where linked data is not found (e.g., deleted employee)
     if (!employee || !shiftTemplate) {
@@ -52,7 +52,7 @@ function ShiftCard({ assignment, allEmployees, allShifts }) {
 
             <div className="shift-card__body">
                 {/* Employee Name */}
-                <div className="employee-name">**{employeeName}**</div>
+                <div className="employee-name">{employeeName}</div>
                 
                 {/* Time Range */}
                 <div className="shift-time">{timeRange}</div>

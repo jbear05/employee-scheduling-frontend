@@ -14,6 +14,7 @@ function DayColumn({ date, allAssignments, allEmployees, allShifts, onAddAssignm
 
     // 1. Filter Assignments to the Current Day (CRITICAL STEP)
     const dailyAssignments = allAssignments.filter(assignment => {
+
         // Skip assignments that don't have a date property
         if (!assignment || !assignment.date) {
             return false;

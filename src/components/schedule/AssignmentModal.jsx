@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { createAssignment } from '../../services/AssignmentService';
 import { format } from 'date-fns';
 
@@ -6,10 +6,20 @@ function AssignmentModal({ isOpen, onClose, selectedDate, employees, shifts, onS
     const [formData, setFormData] = useState({
         employeeId: '',
         shiftId: '',
-        date: selectedDate ? format(selectedDate, 'yyyy-MM-dd') : '',
+        date: '',
     });
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
+
+    //updates date when selectedDate changes
+    useEffect(() => {
+        if (selectedDate) {
+            setFormData(prev => ({
+                ...prev,
+                date: format(selectedDate, 'yyyy-MM-dd')
+            }));
+        }
+    }, [selectedDate]);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
