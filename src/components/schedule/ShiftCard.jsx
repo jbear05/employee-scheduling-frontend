@@ -9,7 +9,7 @@ import React from 'react';
  * @param {Array} allShifts - List of all shift templates (for time/role lookup).
  */
 
-function ShiftCard({ assignment, allEmployees, allShifts }) {
+function ShiftCard({ assignment, allEmployees, allShifts, onDelete }) {
     
     // 1. Look Up Employee Name (based on ID)
     // Find the employee object whose ID matches the assignment's assignedEmployeeId
@@ -38,6 +38,14 @@ function ShiftCard({ assignment, allEmployees, allShifts }) {
     // For now, we'll use a basic template:
     const cardClass = `shift-card shift-card--${shiftRole.toLowerCase().replace(/\s/g, '')}`; 
 
+    // Delete handler
+    const handleDelete = (e) => {
+        e.stopPropagation(); // Prevent any parent click handlers
+        if (window.confirm(`Delete assignment for ${employeeName}?`)) {
+            onDelete(assignment.id);
+        }
+    };
+
     return (
         // The entire card container, using the calculated class for coloring
         <div 
@@ -47,7 +55,13 @@ function ShiftCard({ assignment, allEmployees, allShifts }) {
         >
             <div className="shift-card__header">
                 {/* Optional: The three dots menu for fast actions/drag-handle */}
-                <span className="shift-card__menu-icon">⋮</span>
+                <span 
+                className="shift-card__menu-icon"
+                onClick={handleDelete}
+                title="Delete assignment"
+                >
+                    ⋮
+                </span>
             </div>
 
             <div className="shift-card__body">

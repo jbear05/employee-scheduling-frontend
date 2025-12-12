@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { getAssignments } from '../services/AssignmentService'; 
+import { getAssignments, deleteAssignment } from '../services/AssignmentService'; 
 import { getEmployees } from '../services/EmployeeService';
 import { getShifts } from '../services/ShiftService'; 
 import * as DateHelpers from '../utils/dateHelpers';
@@ -76,6 +76,17 @@ function ScheduleCalendarPage() {
         setIsModalOpen(true);
     };
 
+    // Handle assignment deletion
+    const handleDeleteAssignment = async (id) => {
+        try {
+            await deleteAssignment(id);
+            fetchData(); // Refresh calendar
+        } catch (err) {
+            console.error("Error deleting assignment:", err);
+            alert("Failed to delete assignment");
+        }
+    };
+
     // Handle modal close
     const handleCloseModal = () => {
         setIsModalOpen(false);
@@ -112,6 +123,7 @@ function ScheduleCalendarPage() {
                 employees={employees}
                 shifts={shifts}
                 onAddAssignment={handleAddAssignment}  // Pass handler down
+                onDeleteAssignment={handleDeleteAssignment}
             />
 
             {/* Modal */}

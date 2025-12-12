@@ -311,6 +311,12 @@
     color: #999;
     font-size: 1.2rem;
     cursor: pointer;
+    transition: color 0.2s, transform 0.2s;
+}
+
+.shift-card__menu-icon:hover {
+    color: var(--color-error);
+    transform: scale(1.2);
 }
 
 .shift-card__body {

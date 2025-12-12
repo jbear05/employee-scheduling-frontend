@@ -9,7 +9,7 @@ import DayColumn from './DayColumn';
  * @param {Array} employees - List of all employees (for name lookup).
  * @param {Array} shifts - List of all shift templates (for time/role lookup).
  */
-function CalendarGrid({ currentWeekStart, assignments, employees, shifts, onAddAssignment }) {
+function CalendarGrid({ currentWeekStart, assignments, employees, shifts, onAddAssignment, onDeleteAssignment }) {
     
     // 1. Generate the 7 Date Objects for the week
     const weekDays = DateHelpers.generateWeekDays(currentWeekStart);
@@ -25,6 +25,7 @@ function CalendarGrid({ currentWeekStart, assignments, employees, shifts, onAddA
                     allEmployees={employees}
                     allShifts={shifts}
                     onAddAssignment={onAddAssignment}
+                    onDeleteAssignment={onDeleteAssignment}
                 />
             ))}
         </div>

@@ -6,7 +6,7 @@ import { isSameDay, parseISO } from 'date-fns';
 /**
  * Renders a single day column and the shift cards assigned to it.
  */
-function DayColumn({ date, allAssignments, allEmployees, allShifts, onAddAssignment }) {
+function DayColumn({ date, allAssignments, allEmployees, allShifts, onAddAssignment, onDeleteAssignment }) {
     
     // Format the date for the column header (e.g., "Monday")
     const dayName = DateHelpers.formatDayName(date);
@@ -51,6 +51,7 @@ function DayColumn({ date, allAssignments, allEmployees, allShifts, onAddAssignm
                             assignment={assignment} 
                             allEmployees={allEmployees}
                             allShifts={allShifts}
+                            onDelete={onDeleteAssignment}
                         />
                     ))
                 ) : (

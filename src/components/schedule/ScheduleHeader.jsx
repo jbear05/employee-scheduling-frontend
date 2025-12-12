@@ -57,9 +57,9 @@ function ScheduleHeader({ currentWeekStart, handleWeekChange }) {
                     Today
                 </button>
                 
-                <button className="btn-action btn-print">
+                {/* <button className="btn-action btn-print">
                     Print Schedule
-                </button>
+                </button> */}
                 
                 {/* You may also add the Export Schedule button here if it's dynamic */}
             </div>

@@ -12,10 +12,9 @@ function MainHeader() {
                     <h1 className="app-title">Employee Scheduling System</h1>
                 </div>
                 
-                <div className="header-actions">
+                {/* <div className="header-actions">
                     <button className="btn-export">Export Schedule</button> 
                     {/* The Export Schedule button would eventually call a specific API function */}
-                </div>
             </div>
 
             {/* Tab Navigation Section (White/Gray strip below the top bar) */}
